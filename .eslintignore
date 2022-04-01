@@ -1,0 +1,4 @@
+dist
+/*.js
+__mocks__/*
+src/**/*.spec.ts
