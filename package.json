@@ -2,5 +2,9 @@
   "name": "access-counter-api",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "global": "^4.4.0",
+    "serverless": "^3.10.2"
+  }
 }
