@@ -12,6 +12,7 @@
     "express": "^4.17.3",
     "helmet": "^5.0.2",
     "serverless": "^3.10.2",
+    "serverless-http": "^2.7.0",
     "ts-node": "^10.7.0"
   },
   "devDependencies": {
