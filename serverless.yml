@@ -12,3 +12,9 @@ custom: usersTableName: users-table-${self:provider.stage}
 
 plugins:
   - serverless-iam-roles-per-function
+
+functions:
+  api:
+    handler: dist/handler.handler
+    events:
+      - httpApi: '*'
