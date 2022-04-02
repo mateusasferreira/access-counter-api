@@ -8,7 +8,8 @@ provider:
   environment:
     DYNAMODB_USERS_TABLE_NAME: ${self:custom.usersTableName}
 
-custom: usersTableName: users-table-${self:provider.stage}
+custom: 
+  usersTableName: users-table-${self:provider.stage}
 
 plugins:
   - serverless-iam-roles-per-function
