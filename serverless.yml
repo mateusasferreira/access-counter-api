@@ -21,6 +21,10 @@ provider:
   environment:
     DYNAMODB_USERS_TABLE_NAME: ${self:custom.usersTableName}
 
+package:
+  patterns:
+    - '!node_modules/**'
+
 custom: 
   usersTableName: users-table-${self:provider.stage}
   dynamodb: 
