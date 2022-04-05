@@ -22,15 +22,7 @@ provider:
     DYNAMODB_USERS_TABLE_NAME: ${self:custom.usersTableName}
 
 package:
-  exclude:
-    - '__tests__/**'
-    - 'src/**'
-    - 'coverage/**'
-    - '.eslintignore'
-    - 'tsconfig.json'
-    - 'README.md'
-    - 'yarn.lock'
-    - 'jest.config.ts'
+  individually: true
 
 custom: 
   usersTableName: users-table-${self:provider.stage}
@@ -46,6 +38,7 @@ plugins:
   - serverless-iam-roles-per-function
   - serverless-dynamodb-local
   - serverless-offline
+  - serverless-plugin-reducer
 
 functions:
   api:
