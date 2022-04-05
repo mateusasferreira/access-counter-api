@@ -23,6 +23,11 @@ provider:
 
 package:
   individually: true
+  exclude:
+    - "src/**"
+    - "__tests__/**"
+    - "coverage"
+    - ".dynamodb"
 
 custom: 
   usersTableName: users-table-${self:provider.stage}
@@ -33,15 +38,11 @@ custom:
       migrate: true
   serverless-offline:
     resourcesRoutes: true
-  reducer:
-    ignoreMissing: true
-
 
 plugins:
   - serverless-iam-roles-per-function
   - serverless-dynamodb-local
   - serverless-offline
-  - serverless-plugin-reducer
 
 functions:
   api:
