@@ -22,8 +22,15 @@ provider:
     DYNAMODB_USERS_TABLE_NAME: ${self:custom.usersTableName}
 
 package:
-  patterns:
-    - '!node_modules/**'
+  exclude:
+    - '__tests__/**'
+    - 'src/**'
+    - 'coverage/**'
+    - '.eslintignore'
+    - 'tsconfig.json'
+    - 'README.md'
+    - 'yarn.lock'
+    - 'jest.config.ts'
 
 custom: 
   usersTableName: users-table-${self:provider.stage}
