@@ -6,7 +6,7 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.58.0",
     "@aws-sdk/util-dynamodb": "^3.58.0",
-    "aws-sdk": "^2.1106.0",
+    "aws-sdk": "^2.1108.0",
     "aws-serverless-express": "^3.4.0",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
@@ -16,6 +16,7 @@
     "express-async-handler": "^1.2.0",
     "global": "^4.4.0",
     "helmet": "^5.0.2",
+    "mock-aws-s3": "^4.0.2",
     "serverless": "^3.10.2",
     "serverless-dynamodb-local": "^0.2.40",
     "serverless-http": "^2.7.0",
