@@ -33,6 +33,9 @@ custom:
       migrate: true
   serverless-offline:
     resourcesRoutes: true
+  reducer:
+    ignoreMissing: true
+
 
 plugins:
   - serverless-iam-roles-per-function
