@@ -46,7 +46,8 @@ const userModel: Model<User> = dynamoose.model<User>(
 		{
 			timestamps: true,
 		}
-	)
+	),
+	{create: false}
 )
 
 export { User, userModel }
