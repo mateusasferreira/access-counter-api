@@ -19,7 +19,7 @@ beforeAll(() => {
 
   mockUser = {
     username: 'user',
-    password: '12345',
+    password: 'Senha123',
     email: 'user@email.com.br'
   }
 })

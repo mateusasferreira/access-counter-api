@@ -24,6 +24,10 @@ export class UserService implements IUserService {
 		
 		if(usernameAlreadyUsed) throw new Error('Username already registered')
 		
+		const passwordMatch = user.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)
+
+		if(!passwordMatch) throw new Error('Senha deve ter ao menos 8 caracteres, sendo pelo menos um miúsculo e uma letra')
+
 		const encryptedPassword = await bcrypt.hash(user.password, 8)
 
 		delete user.password

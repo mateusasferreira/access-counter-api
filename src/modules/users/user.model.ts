@@ -40,6 +40,7 @@ const userModel: Model<User> = dynamoose.model<User>(
 			},
 			passwordHash: {
 				type: String,
+				validate: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g,
 				required: true,
 			},
 		},

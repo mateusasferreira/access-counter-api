@@ -14,18 +14,18 @@ const mockedRepository = userRepository as jest.Mocked<typeof userRepository>
 let mockUser
 let mockPartialUser
 
-beforeAll(() => {
+beforeEach(() => {
   jest.clearAllMocks()
 
   mockUser = {
     username: 'user',
-    password: '12345',
+    password: 'Senha123',
     email: 'user@email.com.br'
   }
 
   mockPartialUser = {
     username: 'user',
-    password: '12345',
+    password: 'Senha123',
   }
 })
 
@@ -63,6 +63,30 @@ describe('user endpoints', () => {
       .send(mockUser)
     
     expect(res.status).toBe(400)
+  })
+ 
+  it('/POST should only accept passwords that are ate least 8 chars long, at least one uppercase and one number', async () => {
+    mockedRepository.insert.mockImplementation((user: Partial<User>) => Promise.resolve(user as User))
+    mockedRepository.findOne.mockResolvedValue(null)
+
+    mockUser = {...mockUser, password: '1234'}
+
+    const res = await supertest(app)
+      .post('/users')
+      .send(mockUser)
+    
+    expect(res.status).toBe(400)
+  })
+
+  it('/POST should respond 201 if the right body data is passed', async () => {
+    mockedRepository.insert.mockImplementation((user: Partial<User>) => Promise.resolve(user as User))
+    mockedRepository.findOne.mockResolvedValue(null)
+
+    const res = await supertest(app)
+      .post('/users')
+      .send(mockUser)
+
+    expect(res.status).toBe(201)
   })
   
   it('/POST should respond 201 if the right body data is passed', async () => {
