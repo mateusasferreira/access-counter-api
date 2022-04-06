@@ -1,5 +1,0 @@
-dist
-/*.js
-__mocks__/*
-__tests__/*
-src/**/*.spec.ts
