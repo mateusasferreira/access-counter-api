@@ -16,15 +16,15 @@ export class UserService implements IUserService {
 	constructor(private readonly repository: Repository<User>){}
 
 	async create(user: CreateUserDto): Promise<User> {
-		const encryptedPassword = await bcrypt.hash(user.password, 8)
-		
 		const emailAlreadyUsed = await this.repository.findOne({email: user.email})
-
+		
 		if(emailAlreadyUsed) throw new Error('Email already registered')
-
+		
 		const usernameAlreadyUsed = await this.repository.findOne({username: user.username})
-
+		
 		if(usernameAlreadyUsed) throw new Error('Username already registered')
+		
+		const encryptedPassword = await bcrypt.hash(user.password, 8)
 
 		delete user.password
 

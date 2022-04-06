@@ -22,7 +22,6 @@ provider:
     DYNAMODB_USERS_TABLE_NAME: ${self:custom.usersTableName}
 
 package:
-  individually: true
   exclude:
     - "src/**"
     - "__tests__/**"
@@ -30,19 +29,19 @@ package:
     - ".dynamodb"
 
 custom: 
-  usersTableName: users-table-${self:provider.stage}
-  # dynamodb: 
-  #   stages: 
-  #     - dev
-  #   start:
-  #     migrate: true
-  # serverless-offline:
-  #   resourcesRoutes: true
+  myStage: ${opt:stage, self:provider.stage}
+  usersTableName: users-table-${self:custom.myStage}
+  dynamodb: 
+    stages: 
+      - dev
+    start:
+      migrate: true
+  serverless-offline:
+    resourcesRoutes: true
 
 plugins:
-  - serverless-iam-roles-per-function
-  # - serverless-dynamodb-local
-  # - serverless-offline
+  - serverless-dynamodb-local
+  - serverless-offline
 
 functions:
   api:
