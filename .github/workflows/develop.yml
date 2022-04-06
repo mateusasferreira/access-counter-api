@@ -2,7 +2,7 @@ name: Deploy Access Count API
 
 on:
   push:
-    branches: [ main ]
+    branches: [ develop ]
 
 jobs:
   deploy:
@@ -34,7 +34,7 @@ jobs:
     - name: install prod dependencies
       run: yarn install --production
 
-    - name: serverless deploy --stage prod
+    - name: serverless deploy
       uses: serverless/github-action@master
       with:
         args: deploy
