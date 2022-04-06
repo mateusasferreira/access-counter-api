@@ -11,9 +11,13 @@ provider:
         - Effect: Allow
           Action:
             - dynamodb:*
-
           Resource:
             - Fn::GetAtt: [ UsersTable, Arn ]
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+          Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.DYNAMODB_USERS_TABLE_NAME}/index/*"
   environment:
     DYNAMODB_USERS_TABLE_NAME: ${self:custom.usersTableName}
 
