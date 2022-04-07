@@ -10,7 +10,10 @@ class UserRepository extends DynamodbRepository<User> {
 		}
 
 		return !Object.keys(condition).length
-			? await this.collection.scan().exec()
+			? await this.collection
+				.scan()
+				.attributes(['id', 'email', 'username', 'createdAt', 'updatedAt'])
+				.exec()
 			: await this.collection
 				.query(condition)
 				.attributes(['id', 'email', 'username', 'createdAt', 'updatedAt'])
