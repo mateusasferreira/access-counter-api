@@ -1,5 +1,7 @@
 # API de contagem de acessos
 
+[**Documentação Swagger (Open Api)**](https://app.swaggerhub.com/apis-docs/mateusferreira6/api-contagem-acessos/1.0.0-oas3#/default/get_)
+
 ## Ferramentas 
 
 - Node.js
